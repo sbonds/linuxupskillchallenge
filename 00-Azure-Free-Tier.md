@@ -15,6 +15,7 @@ These instructions will walk you through using Azure's free credits.
 ## Signing up with Azure
 
 Sign-up is fairly simple - just provide your email address and a password of your choosing - along with a phone number for a 2FA - a second method of authentication. Azure can be a bit funny about 'corporate' email addresses, eg using a work address or your own domain. Create a new @outlook or @gmail.com account if so using the link on the sign-up page.
+
 You will need to also provide your VISA or other credit card information.
 
 ### Create your first resource group, virtual network, and virtual machine
@@ -70,15 +71,13 @@ From the Home screen in the Azure Portal choose "Create a Resource"
 
 Now to fully expose the machine and all ports to the internet:
 
-- Navigate to <https://portal.azure.com/#home>
-- Select 'Virtual Machines'
-- Select your created virtual machine and select 'Networking' from the settings pane
-- Click 'Inbound Port Rules' and 'Add inbound port rule'
-- Set 'source port ranges' and 'destination port ranges' to '*' and set 'Source' and 'Destination' to 'any'. Ensure protocol is set to 'any' and action is set to 'allow'. Set the priority to '100' and create an appropriate name
-- Click 'Outbound port rules' and 'add outbound port rule'
-- Set 'source port ranges' and 'destination port ranges' to '*' and set 'Source' and 'Destination' to 'any'. Ensure protocol is set to 'any' and action is set to 'allow'. Set the priority to '101' and create an appropriate name
+* Navigate to [the Azure Portal](https://portal.azure.com/#home)
+* Select 'Virtual Machines'
+* Select your created virtual machine and select 'Networking' from the settings pane
+* Click 'Inbound Port Rules' and 'Add inbound port rule'
+* Set 'source port ranges' and 'destination port ranges' to '*' and set 'Source' and 'Destination' to 'any'. Ensure protocol is set to 'any' and action is set to 'allow'. Set the priority to '100' and create an appropriate name
 
-This opens all ports and protocols to access from anywhere. While this might be unwise for a production server, it is what we want for this course.
+This opens all ports and protocols to access from anywhere. While this might be unwise for a production server, it is what we want for this course so we can later see what a big mess it is on the Internet.
 
 ## Remote access via SSH
 
@@ -109,3 +108,13 @@ Note that:
 * This server is now running, and completely exposed to the whole of the Internet
 * You alone are responsible for managing it
 * You have just installed the latest updates, so it should be secure for now
+
+## Additional nicities for overachievers
+
+### Use "pageant" for holding your SSH key
+
+This way you don't need to enter the key pass phrase each time you log in.
+
+### Set up a DNS name for your VM
+
+Then you can configure PuTTY with the name instead of the IP, which will persist even when shut down.
