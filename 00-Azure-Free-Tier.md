@@ -66,7 +66,7 @@ From the Home screen in the Azure Portal choose "Create a Resource"
 * Click on "Auth" (not the "+" this time)
 * Near "Private key file for authentication" choose "Browse" and browse to your private key file
 * (optional) In Connection - Data, put "azureuser" in the auto-login username
-* (optiona) In Session (top) Under Saved Sessions give it a name and save the session
+* (optional) In Session (top) Under Saved Sessions give it a name and save the session
 * Answer "yes" to the "The server's host key is not cached" prompt
 
 Now to fully expose the machine and all ports to the internet:
@@ -99,7 +99,7 @@ Then:
 
 Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. (Reply to any prompts by taking the default option). These commands are how you force the installation of updates on an Ubuntu Linux system, and only an administrator can do them.
 
-To logout, type _logout_ or _exit_.
+To logout, type _logout_ or _exit_ or (for the very lazy) `<ctrl>-d`
 
 Your server is now all set up and ready for the course!
 
@@ -118,3 +118,11 @@ This way you don't need to enter the key pass phrase each time you log in.
 ### Set up a DNS name for your VM
 
 Then you can configure PuTTY with the name instead of the IP, which will persist even when shut down.
+
+#### Use your DNS name in PuTTY
+
+Create a session named after your host.
+
+### Change your SSH key to one you can use lots of places
+
+Use Azure's "Reset Password" feature to change the SSH key to an OpenSSH format key created via PuTTYGen.
