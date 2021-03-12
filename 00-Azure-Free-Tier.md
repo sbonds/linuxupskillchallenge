@@ -17,18 +17,56 @@ These instructions will walk you through using Azure's free credits.
 Sign-up is fairly simple - just provide your email address and a password of your choosing - along with a phone number for a 2FA - a second method of authentication. Azure can be a bit funny about 'corporate' email addresses, eg using a work address or your own domain. Create a new @outlook or @gmail.com account if so using the link on the sign-up page.
 You will need to also provide your VISA or other credit card information.
 
-- Click 'start building in azure'
-- Click 'Deploy a virtual machine'
-- Click 'Create a linux virtual machine'
-- Search and select Ubuntu Server 20.04 LTS
-- Use the Standard _D2s_v3 size - this should be comfortably covered by your trial credits for the duration of the course
-- Ensure 'SSH Public Key' for authentication and 'generate new key pair' for SSH Public Key source are selected
-- Leave 'allow selected ports' as 'ssh (22)' for now
-- Click 'Review + Create'
-- Azure will generate and download the private key file to SSH onto the box -
-- (Windows) double-click this to open on Windows and it will be added to your cert store on the machine
-- (Mac OS X and Linux) run the command 'sudo ssh-add -K /link-to-downloaded-file'
-- Connect to the machine using `ssh azureuser@PUBLICIP`
+### Create your first resource group, virtual network, and virtual machine
+
+From the Home screen in the Azure Portal choose "Create a Resource"
+
+* Enter "Resource group" in the search box
+* Choose Create
+* Enter a region and name then choose "Create"
+* Go back to Home and choose "Create a resource"
+* Search for virtual network
+* Choose Create
+* Choose the resource group you just made as the location for this virtual network
+* Enter a name for your vnet like ("vnet-sbonds-linuxupskillchallenge")
+* Choose Review + Create
+* Review
+* Create
+* When your deployment is complete, go back to the Azure Portal Home
+* Choose "Create a resource"
+* Choose the Ubuntu Server 18.04 LTS from the popular list
+  * If you search be sure the image is free and provided by "Canonical" as the publisher
+  * Avoid images with text like "Software plan starts at $X.XX per hour"
+* Choose Create
+* Change the resource group to the one you created earlier
+* Change the size to Standard_B1ms (unless there's another option for you which is free)
+* Keep the default authentication type of "SSH Public key"
+* Use the default user "azureuser"
+* Keep the default "generate new key pair"
+
+* Ensure 'SSH Public Key' for authentication and 'generate new key pair' for SSH Public Key source are selected
+* Leave 'allow selected ports' as 'ssh (22)' for now
+* Click 'Review + Create'
+* Azure will generate and download the private key file to SSH onto the box. This is in the unusual PEM format.
+* Choose Go to Resource
+* Note the public IP
+
+### Log in with Windows/PuTTY
+
+* In PuTTYGen open the PEM file downloaded via "Conversions - Import Key"
+* Set a strong pass phrase
+* Set a descriptive key comment
+* Save public key
+* Save private key
+
+* Open PuTTY itself
+* Put the public IP of your new VM in the "Host Name (or IP address)" field
+* In the menu along the left expand the SSH category in PuTTY by clicking the "+"
+* Click on "Auth" (not the "+" this time)
+* Near "Private key file for authentication" choose "Browse" and browse to your private key file
+* (optional) In Connection - Data, put "azureuser" in the auto-login username
+* (optiona) In Session (top) Under Saved Sessions give it a name and save the session
+* Answer "yes" to the "The server's host key is not cached" prompt
 
 Now to fully expose the machine and all ports to the internet:
 
