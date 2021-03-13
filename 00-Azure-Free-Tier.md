@@ -38,6 +38,7 @@ From the Home screen in the Azure Portal choose "Create a Resource"
 * Choose the Ubuntu Server 18.04 LTS from the popular list
   * If you search be sure the image is free and provided by "Canonical" as the publisher
   * Avoid images with text like "Software plan starts at $X.XX per hour"
+  * Ubuntu 20 is not available on Azure except as an extra-charge "Pro" version
 * Choose Create
 * Change the resource group to the one you created earlier
 * Change the size to Standard_B1ms (unless there's another option for you which is free)
