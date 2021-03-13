@@ -127,3 +127,7 @@ Create a session named after your host.
 ### Change your SSH key to one you can use lots of places
 
 Use Azure's "Reset Password" feature to change the SSH key to an OpenSSH format key created via PuTTYGen.
+
+### Create a storage account to store your VM's serial port logs
+
+And enable serial port logging and access. This is a nice feature found on Azure as only a more limited version of this exists in AWS.
