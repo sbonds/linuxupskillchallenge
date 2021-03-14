@@ -74,7 +74,7 @@ Copy your password and be ready to paste.
 
 Enter "root" for the login.
 
-Right click in the console area and use Chrome's "Paste as plain text" to enter your nasty passsword. Alternatively, you can type it, but if you picked a good one, that is going to be annoying.
+Right click in the console area and use Chrome's "Paste as plain text" followed by manually hitting the `<enter>` key to enter your nasty password. Alternatively, you can type it by hand instead of pasting, but if you picked a good password, that is going to be annoying.
 
 Once logged in you should see something like this:
 
