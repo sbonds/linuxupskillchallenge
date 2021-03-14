@@ -109,6 +109,14 @@ usermod --append --groups sudo sbonds_adm
 
 *This* will be the account that you use to login and work with your server. It has been added to the 'adm' and 'sudo' groups, which on an Ubuntu system gives it access to read various logs and to "become root" as required via the _sudo_ command.
 
+If you get this error:
+
+```text
+user sbonds_adm does not exist
+```
+
+Check that you are using your own newly created user and not my example user.
+
 All done!
 
 ![Usermod done](2021-03-14-11-31-42.png)
