@@ -96,6 +96,8 @@ Enter the user's full name (or an alias of your choosing) at the prompt. The roo
 
 ![User fields added](2021-03-14-11-30-33.png)
 
+At the confirmation prompt, type "Y" and enter if it looks correct. If not, type "N" and enter and you can re-try.
+
 ### Add user to local groups
 
 Add this user to some local groups that grant extra privileges:
