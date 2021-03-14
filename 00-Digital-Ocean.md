@@ -82,7 +82,7 @@ Once logged in you should see something like this:
 
 ## Creating a working admin account
 
-We want to follow the Best Practice of not logging as "root" remotely, so we'll create an ordinary user account, but one with the power to "become root" as necessary, like this:
+We want to follow the Best Practice of not logging as "root" remotely, so we'll create an ordinary user account, but one with the power to "become root" as necessary. To create a user, type the below `adduser` command with your own username after the `adduser` command in place of the "sbonds_adm" example below:
 
 ```bash
 adduser sbonds_adm
