@@ -168,3 +168,7 @@ Note that:
 * This server is now running, and completely exposed to the whole of the Internet
 * You alone are responsible for managing it
 * You have just installed the latest updates, so it should be secure for now
+
+## Optional: Create an Ubuntu 20.04 system
+
+This is not possible during the Digital Ocean "first server" process. You can create an Ubuntu 20.04 system from the normal Digital Ocean interface though.
