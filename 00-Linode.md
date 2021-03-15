@@ -1,6 +1,10 @@
-# Day 0 - Creating Your Own Server - with a $5 Linode plan
+# Day 0 - Creating Your Own Server - with a $5 Linode plan (FAILED)
 
 * [Previous "Day 0" threads](https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%200&restrict_sr=1)
+
+## Linode fails to work
+
+Linode does not appear to accept many new subscribers. You may want to avoid this service.
 
 ## INTRO
 
@@ -19,10 +23,6 @@ Linode is friendlier about people using anti-spam services than other providers 
 ### First E-mail
 
 You will get an activation E-mail which will direct you to a form where you must enter billing information, including address and credit card info. They will put a hold of $1.00 on your card.
-
-When done you'll get something like this:
-
-![Address and billing complete](2021-03-14-08-33-48.png)
 
 ### Second E-mail (longer delay)
 
@@ -64,51 +64,3 @@ If you do not receive a reply, this means the decision to cancel the account cou
 I E-mailed their support contact with the above info and mentioned that this wasn't enrolled via VPN, used a valid credit card, etc. They have not responded so I can only assume they do not wish to do business with me.
 
 No problem. Moving on.
-
-## Creating a server
-
-TODO
-
-## Logging in for the first time
-
-TODO
-
-## Creating a working admin account
-
-TODO
-
-## You are now a sysadmin
-
-Logout as *root*, by typing logout or *exit*, or, for the super-lazy, `ctrl-d`, then login as your new sysadmin user, and confirm that you can do administrative tasks by typing:
-
-`sudo apt update`
-
-(you'll be asked to confirm your password)
-
-Then:
-
-`sudo apt upgrade`
-
-Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. These commands are how you force the installation of updates on an Ubuntu Linux system, and only an administrator can do them.
-
-## We can now safely disable login as the *root* user
-
-With our new working user able to perform all sysadmin tasks, there is no reason for us to login user *root*. Our server is exposed to all the internet, and we can expect continuous attempts to login from malicious bots - most of which will be attempting to login as *root*. While we did set a very secure password just before, it would be nice to know that remote login as *root* is actually *impossible* - and it's possible to do that with this command:
-
-`sudo usermod -p "!" root`
-
-This disables direct login access, while still allowing approved logged in users to "become root' as necessary - and is the normal default configuration of an Ubuntu system. (Digital Ocean's choice to enable "root" in their image is non-standard).
-
-To logout, type _logout_ or _exit_.
-
-Your server is now all set up and ready for the course!
-
-## Remote access via SSH
-
-You should see an "IPv4" entry for your server, this is its unique Internet IP address, and is how you'll connect to it via SSH (the Secure Shell protocol) - something we'll be covering in the first lesson.
-
-Note that:
-
-* This server is now running, and completely exposed to the whole of the Internet
-* You alone are responsible for managing it
-* You have just installed the latest updates, so it should be secure for now
