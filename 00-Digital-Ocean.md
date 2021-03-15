@@ -70,9 +70,9 @@ Select your droplet and "Access" from the left-hand sidebar. Choose "Launch Reco
 
 ![Digital Ocean recovery console](2021-03-14-11-20-28.png)
 
-Copy your password and be ready to paste.
-
 Enter "root" for the login.
+
+Copy the root password you just created.
 
 Right click in the console area and use Chrome's "Paste as plain text" followed by manually hitting the `<enter>` key to enter your nasty password. Alternatively, you can type it by hand instead of pasting, but if you picked a good password, that is going to be annoying.
 
