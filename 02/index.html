@@ -1,0 +1,539 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Day 2 - Basic navigation - Linux Upskill Challenge (Steve Bonds' Modified Version)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-2-basic-navigation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-header__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Upskill Challenge (Steve Bonds' Modified Version)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 2 - Basic navigation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-nav__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Linux Upskill Challenge (Steve Bonds' Modified Version)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        home
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    INTRO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-tasks-today" class="md-nav__link">
+    YOUR TASKS TODAY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step" class="md-nav__link">
+    STEP-BY-STEP
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP-BY-STEP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands-step-by-step" class="md-nav__link">
+    Commands step-by-step
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtfm" class="md-nav__link">
+    RTFM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap" class="md-nav__link">
+    WRAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    EXTENSION
+  </a>
+  
+    <nav class="md-nav" aria-label="EXTENSION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details-of-ls-l-output" class="md-nav__link">
+    Details of "ls -l" output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    RESOURCES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/sbonds/linuxupskillchallenge/tree/sbonds-long-term/docs/02.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="day-2-basic-navigation">Day 2 - Basic navigation</h1>
+<ul>
+<li><a href="https://youtu.be/x_VBskTUzxg">Complementary video</a></li>
+<li><a href="https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%202&amp;restrict_sr=1">Previous "Day 2" threads</a></li>
+</ul>
+<h2 id="intro">INTRO</h2>
+<p>Most computer users outside of the Linux and Unix world don't spend much time at the command-line now, but as a Linux sysadmin this is your default working environment - so you need to be skilled in it.</p>
+<p>When you use a graphic desktop such as Windows or Apple's macOS (or even the latest Linux flavors), then increasingly you are presented with simple "places" where your stuff is stored - "Pictures" "Music" etc but if you're even moderately technical then you'll realize that underneath all this is a hierarchical  "directory structure" of "folders" (e.g. <em>C:\Users\Steve\Desktop</em> on Windows or <em>/Users/Steve/Desktop</em> on macOS - and on a Desktop Linux system <em>/home/steve/Desktop</em>)</p>
+<p><em>From now on, the course will point you to a range of good online resources for a topic, and then set you a simple set of tasks to achieve. It's perfectly fine to google for other online resources, refer to any books you have etc - and in fact a <em>fundamental element</em> of the design of this course is to force you to do a bit of your own research. Even the most experienced sysadmins will do an online search to find advice for how to use commands - so the sooner you too get into that habit the better!</em></p>
+<h2 id="your-tasks-today">YOUR TASKS TODAY</h2>
+<ul>
+<li>Use the provided resources to check out the basic commands and concepts</li>
+<li>Login to your server via SSH and move about the directory structure at the command-line</li>
+<li>Take note of how your "prompt" changes as you change directory</li>
+<li>Be sure to understand how <code>cd</code> on its own takes you back to your "home directory"</li>
+<li>Understand what <code>cd ~</code> and <code>cd ..</code> do</li>
+<li>Use the <code>ls</code> command to list the contents of directories, and try several of the "switches" - in particular <code>ls -ltr</code> to show the most recently altered file last</li>
+<li>Use the <code>mkdir</code> command to create a new directory (folder) <code>test</code> in your home folder ( e.g <code>/home/support/test</code>)</li>
+</ul>
+<h2 id="step-by-step">STEP-BY-STEP</h2>
+<ul>
+<li><code>/</code> is the "root" of a branching tree of folders, known as directories</li>
+<li>At all times you are "in" one part of the system. Your current location in the directory tree is your "working directory"</li>
+<li>The command <code>pwd</code> ("print working directory") will show you where you are. Try it now.<ul>
+<li><code>pwd</code> should show something like <code>/home/&lt;name&gt;</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>cd</code> ("change directory") moves to different areas - so <code>cd /var/log</code> will take you into the <code>/var/log</code> directory - do this and then check with <code>pwd</code> - and look to see if your prompt changes to reflect your location.</li>
+</ul>
+<ul>
+<li>Generally your prompt is also configured to give you at least some of this information, so if I'm "in" the <em>/etc</em> directory then the prompt might be "steve@202.203.203.22: /etc&gt;$" or simply "/etc: $"<ul>
+<li>Your prompt should have changed to reflect your change to the /var/log directory.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>You can move "up" the structure by typing <code>cd ..</code> ( "cee dee dot dot ") You are already in <code>/var/log/</code>. Type <code>cd ..</code> and then <code>cd ..</code> again - watching your prompt carefully, or typing pwd each time, to clarify your present working directory.</li>
+</ul>
+<ul>
+<li>A "relative" location is based on your present working directory - e.g. if you first <code>cd /var</code> then pwd will confirm that you are "in" <code>/var</code>, and you can move to <code>/var/log</code> in two ways - either by providing the full path with <code>cd /var/log</code> or simply the "relative" path with the command <code>cd log</code></li>
+</ul>
+<ul>
+<li>A simple <code>cd</code> will always return you to your own defined "home directory", also referred to as <code>~</code> (the "tilde" character) [NB: this differs from DOS/Windows]</li>
+</ul>
+<ul>
+<li>What files are in a folder? The <code>ls</code> (list) command will give you a list of the files and directories under your current location. Like many Linux commands, there are options (known as "switches") to alter the meaning of the command or the output format. For example <code>ls -a -l</code> or <code>ls -l -t -r -a</code></li>
+<li>By convention, files with a starting character of "." are considered hidden and the <code>ls</code>, and many other commands, will ignore them. The <code>-a</code> switch includes them.</li>
+<li>A note on switches: Generally most Linux command will accept one or more "parameters", and one or more "switches". So, when we say <code>ls -l /var/log</code> the "<code>-l</code>" is a switch to say "long format" and the "<code>/var/log</code>" is the "parameter". Many commands accept a large number of switches, and these can generally be combined (so from now on, use <code>ls -ltra</code>, rather than <code>ls -l -t -r -a</code></li>
+<li>You can make a new folder/directory with the <code>mkdir</code> command, so move to your home directory, type <code>pwd</code> to check that you are indeed in the correct place, and then create a directory, for example to create one called "test", simply type <code>mkdir test</code>. Now use the <code>ls</code> command to see the result.</li>
+</ul>
+<h3 id="commands-step-by-step">Commands step-by-step</h3>
+<ul>
+<li>Login to your server using ssh</li>
+<li><code>pwd</code></li>
+<li><code>cd /var/log</code></li>
+<li><code>cd ..</code></li>
+<li><code>cd ..</code></li>
+<li><code>cd /var</code></li>
+<li><code>cd log</code></li>
+<li><code>cd</code></li>
+<li><code>ls</code></li>
+<li><code>ls -a -l</code></li>
+<li><code>ls -l -t -r -a</code></li>
+<li><code>ls -l /var/log</code></li>
+<li><code>ls -ltra</code></li>
+<li><code>cd</code></li>
+<li><code>pwd</code></li>
+<li><code>ls -ltra</code></li>
+<li><code>mkdir test</code></li>
+<li><code>ls -l</code></li>
+</ul>
+<h2 id="rtfm">RTFM</h2>
+<p>This is a good time to mention that Linux comes with a fine on-line manual - invoked with the <code>man</code> command. Each application installed comes with its own page in this manual, so that you can look at the page for <em>pwd</em> to see the full detail on the syntax like this:</p>
+<p><code>man pwd</code></p>
+<p>You might also try:</p>
+<ul>
+<li><code>man cp</code></li>
+<li><code>man mv</code></li>
+<li><code>man grep</code></li>
+<li><code>man ls</code></li>
+<li><code>man man</code></li>
+</ul>
+<p>As you'll see, these are excellent for the detailed syntax of a command, but many are extremely terse, and for others the amount of detail can be somewhat daunting!</p>
+<h2 id="wrap">WRAP</h2>
+<p>Being able to move confidently around the directory structure at the command line is important, so don't think you can skip it! However, these skills are something that you'll be constantly using over the twenty days of the course, so don't despair if this doesn't immediately "click."</p>
+<h2 id="extension">EXTENSION</h2>
+<p>If this is already something that you're very familiar with, then:</p>
+<ul>
+<li>Learn about <code>pushd</code> and <code>popd</code> to navigate around multiple directories easily. Running <code>pushd /var/log</code> moves you to to the <code>/var/log</code>, but keeps track of where you were. You can <code>pushd</code> more than one directory at a time. Try it out: <code>pushd /var/log</code>, <code>pushd /dev</code>, <code>pushd /etc</code>, <code>pushd</code>, <code>popd</code>, <code>popd</code>. Note how <code>pushd</code> with no arguments switches between the last two <em>pushed</em> directories but
+<a href="https://opensource.com/article/19/8/navigating-bash-shell-pushd-popd">more complex navigation is also possible</a>. Finally, <code>cd -</code> also moves you the last visited directory.</li>
+<li>Take the time today to understand how the environment variable PS1 etc work (this article: <a href="http://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/">Bash Shell: Take Control of PS1, PS2, PS3, PS4 and PROMPT_COMMAND
+</a> is a good start).</li>
+<li>Set yourself up with a custom prompt using the information in <a href="http://www.thegeekstuff.com/2008/09/bash-shell-ps1-10-examples-to-make-your-linux-prompt-like-angelina-jolie/">Bash Shell PS1: 10 Examples to Make Your Linux Prompt like Angelina Jolie</a></li>
+</ul>
+<h3 id="details-of-ls-l-output">Details of "ls -l" output</h3>
+<p>This section is informational, there are no tasks here, but understanding "ls -l" is useful for seeing the technical depth present in Linux. You'll see this again in more detail on <a href="../13/">day 13</a>.</p>
+<pre><code class="language-text">sbonds_adm@sbonds002:/var/log$ ls -l
+total 11652
+-rw-r--r--  1 root      root                527 Mar 15 03:05 alternatives.log
+drwxr-xr-x  2 root      root               4096 Mar 15 06:21 apt
+-rw-r-----  1 syslog    adm             5290090 Mar 15 22:12 auth.log
+-rw-rw----  1 root      utmp            5786880 Mar 15 22:11 btmp
+-rw-r--r--  1 root      root               8764 Mar 15 22:11 cloud-init-output.log
+-rw-r--r--  1 syslog    adm              203977 Mar 15 22:11 cloud-init.log
+drwxr-xr-x  2 root      root               4096 Oct  7 16:49 dist-upgrade
+-rw-r--r--  1 root      adm               42480 Mar 15 22:11 dmesg
+-rw-r--r--  1 root      adm               42073 Mar 15 02:58 dmesg.0
+-rw-r--r--  1 root      root              94322 Mar 15 06:21 dpkg.log
+drwxr-sr-x+ 3 root      systemd-journal    4096 Mar 15 02:58 journal
+-rw-r-----  1 syslog    adm              114862 Mar 15 22:11 kern.log
+drwxr-xr-x  2 landscape landscape          4096 Mar 15 03:00 landscape
+-rw-rw-r--  1 root      utmp             292292 Mar 15 22:12 lastlog
+drwx------  2 root      root               4096 Mar 15 02:58 private
+-rw-r-----  1 syslog    adm              263674 Mar 15 22:12 syslog
+drwxr-x---  2 root      adm                4096 Mar 15 06:21 unattended-upgrades
+-rw-rw-r--  1 root      utmp               9984 Mar 15 22:12 wtmp
+</code></pre>
+<p>Example of a simple file:</p>
+<pre><code class="language-text">-rw-r--r--  1 root      root                527 Mar 15 03:05 alternatives.log
+</code></pre>
+<p>Breakdown of each section:</p>
+<ul>
+<li><code>-rw-r--r--</code>: permissions r/w/x for read, write, execute for user, group, and everyone else ("other")</li>
+<li><code>1</code>: number of links to the actual data. Usually 1 but you can have two different filenames pointing at the same actual file via "hard links."</li>
+<li><code>root</code>: user name the owner-level permissions</li>
+<li><code>root</code>: group name the group-level permissions</li>
+<li><code>527</code>: file size in bytes</li>
+<li><code>Mar 15 03:05</code>: date the file was last modified</li>
+<li><code>alternatives.log</code>: name of the file</li>
+</ul>
+<p>Example of some odd things:</p>
+<pre><code class="language-text">drwxr-sr-x+ 3 root      systemd-journal    4096 Mar 15 02:58 journal
+</code></pre>
+<p>Why is there an "s" instead of an "x"? What is that "+" at the end?</p>
+<p>The "s" means set-group-id and on a directory it means that any files created in that directory end up with their group ownership set to match the directory's group. E.g. new files created in there are owned by group "systemd-journal".</p>
+<p>The "+" means there are additional permissions beyond the traditional basic UNIX permissions present on that directory. These are part of filesystem access control lists (ACLs). You can see those details with the "getfacl" command which is not installed by default in many cases. ("apt-get install acl" if you want that command.)</p>
+<h2 id="resources">RESOURCES</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-cd-pwd-and-ls-to-explore-the-file-system-on-a-linux-server">Explore the Linux file system</a></li>
+<li><a href="https://www.youtube.com/watch?v=2qQTXp4rBEE">Linux File System</a></li>
+<li><a href="http://www.youtube.com/watch?v=CGBsurVdLGY">Simple Terminal Commands on Ubuntu</a></li>
+<li><a href="http://www.gsp.com/support/virtual/admin/unix/solaris/commands.html">Solaris Unix Commands</a></li>
+</ul>
+<p><em>Copyright 2012-2021 @snori74 (Steve Brorens). Can be reused under the terms of the Creative Commons Attribution 4.0 International Licence (CC BY 4.0).</em></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>

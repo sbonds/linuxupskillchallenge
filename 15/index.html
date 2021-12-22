@@ -1,0 +1,444 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Day 15 - Deeper into repositories... - Linux Upskill Challenge (Steve Bonds' Modified Version)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-15-deeper-into-repositories" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-header__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Upskill Challenge (Steve Bonds' Modified Version)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 15 - Deeper into repositories...
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-nav__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Linux Upskill Challenge (Steve Bonds' Modified Version)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        home
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    INTRO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositories-and-versions" class="md-nav__link">
+    REPOSITORIES AND VERSIONS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-is-all-this-setup" class="md-nav__link">
+    WHERE IS ALL THIS SETUP?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-repositories" class="md-nav__link">
+    EXTRA REPOSITORIES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-extra-repositories" class="md-nav__link">
+    ENABLING EXTRA REPOSITORIES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-ubuntu-ppas" class="md-nav__link">
+    EXTENSION - Ubuntu PPAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    SUMMARY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    RESOURCES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/sbonds/linuxupskillchallenge/tree/sbonds-long-term/docs/15.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="day-15-deeper-into-repositories">Day 15 - Deeper into repositories...</h1>
+<ul>
+<li><a href="https://youtu.be/DMenSNaMiD4">Complementary video</a></li>
+<li><a href="https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%2015&amp;restrict_sr=1">Previous "Day 15" threads</a></li>
+</ul>
+<h2 id="intro">INTRO</h2>
+<p>Early on you installed some software packages to your server using <code>apt install</code>. That was fairly painless, and we explained how the Linux model of software installation is very similar to how "app stores" work on Android, iPhone, and increasingly in MacOS and Windows.</p>
+<p>Today however, you'll be looking "under the covers" to see how this works; better understand the advantages (and disadvantages!) - and to see how you can safely extend the system beyond the main official sources.</p>
+<h2 id="repositories-and-versions">REPOSITORIES AND VERSIONS</h2>
+<p>Any particular Linux installation has a number of important characteristics:</p>
+<ul>
+<li>Version - e.g. Ubuntu 20.04, CentOS 5, RHEL 6</li>
+<li>"Bit size"  - 32-bit or 64-bit</li>
+<li>Chip - Intel, AMD, PowerPC, ARM</li>
+</ul>
+<p>The version number is particularly important because it controls the versions of application that you can install. When Ubuntu 18.04 was released (in April 2018 - hence the version number!), it came out with Apache 2.4.29. So, if your server runs 18.04, then even if you installed Apache with <code>apt</code> five years later that is still the version you would receive. This provides stability, but at an obvious cost for web designers who hanker after some feature which later versions provide. (Security patches <em>are</em> made to the repositories, but by "backporting" security fixes from later versions into the old stable version that was first shipped).</p>
+<h2 id="where-is-all-this-setup">WHERE IS ALL THIS SETUP?</h2>
+<p>We'll be discussing the "package manager" used by the Debian and Ubuntu distributions, and dozens of derivatives. This uses the <code>apt</code> command, but for most purposes the competing <code>yum</code> and <code>dnf</code> commands used by Fedora, RHEL, CentOS and Scientific Linux work in a very similar way - as do the equivalent utilities in  other versions.</p>
+<p>The configuration is done with files under the <em>/etc/apt</em> directory, and to see where the packages you install are coming from, use <code>less</code> to view <em>/etc/apt/sources.list</em> where you'll see lines that are clearly specifying URLs to a "repository" for your specific version:</p>
+<p><code>deb http://archive.ubuntu.com/ubuntu precise-security main restricted universe</code></p>
+<p>There's no need to be concerned with the exact syntax of this for now, but what's fairly common is to want to add extra repositories - and this is what we'll deal with next.</p>
+<h2 id="extra-repositories">EXTRA REPOSITORIES</h2>
+<p>While there's an amazing amount of software available in the "standard" repositories (more than 3,000 for CentOS and ten times that number for Ubuntu), there are often packages not available - typically for one of two reasons:</p>
+<ul>
+<li>Stability - CentOS is based on RHEL (Red Hat Enterprise Linux), which is firmly focussed on stability in large commercial server installations, so games and many minor packages are not included</li>
+<li>Ideology - Ubuntu and Debian have a strong "software freedom" ethic (this refers to freedom, not price), which means that certain packages you may need are unavailable by default</li>
+</ul>
+<p>So, next you'll adding an extra repository to your system, and install software from it.</p>
+<h2 id="enabling-extra-repositories">ENABLING EXTRA REPOSITORIES</h2>
+<p>First do a quick check to see how many packages you <em>could</em> already install. You can get the full list and details by running:</p>
+<p><code>apt-cache dump</code></p>
+<p>...but you'll want to press Ctrl-c a few times to stop that, as it's far too long-winded.</p>
+<p>Instead, filter out just the packages names using <code>grep</code>, and count them using: <code>wc -l</code> (<code>wc</code> is "word count", and the "-l" makes it count lines rather than words) - like this:</p>
+<p><code>apt-cache dump | grep "Package:" | wc -l</code></p>
+<p>These are all the packages you could now install. Sometimes there are extra packages available in if you enable extra repositories. Most Linux distros have a similar concept, but in Ubuntu, often the "Universe" and "Multiverse" repositories are disabled by default. These are hosted at Ubuntu, but with less support, and Multiverse: <em>"contains software which has been classified as non-free ...may not include security updates"</em>. Examples of useful tools in Multiverse might include the compression utilities <code>rar</code> and <code>lha</code>, and the network performance tool <code>netperf</code>.</p>
+<p>To enable the "Multiverse" repository, follow the guide at:</p>
+<ul>
+<li><a href="https://help.ubuntu.com/community/Repositories/CommandLine">Community wiki for command line</a></li>
+</ul>
+<p>After adding this, update your local cache of available applications:</p>
+<p><code>sudo apt update</code></p>
+<p>Once done, you should be able to install <code>netperf</code> like this:</p>
+<p><code>sudo apt install netperf</code></p>
+<p>...and the output will show that it's coming from Multiverse.</p>
+<h2 id="extension-ubuntu-ppas">EXTENSION - Ubuntu PPAs</h2>
+<p>Ubuntu also allows users to register an account and setup software in a Personal Package Archive (PPA) - typically these are setup by enthusiastic developers, and allow you to install the latest "cutting edge" software.</p>
+<p>As an example, install and run the <code>neofetch</code> utility. When run, this prints out a summary of your configuration and hardware.
+This is in the standard repositories, and <code>neofetch --version</code> will show the version. If for some reason you wanted to be have a later version you could install a developer's Neofetch PPA to your software sources by:</p>
+<p><code>sudo add-apt-repository ppa:dawidd0811/neofetch</code></p>
+<p>As always, after adding a repository, update your local cache of available applications:</p>
+<p><code>sudo apt update</code></p>
+<p>Then install the package with:</p>
+<p><code>sudo apt install neofetch</code></p>
+<p>Check with <code>neofetch --version</code> to see what version you have now.</p>
+<p>When you next run "sudo apt upgrade" you'll likely be prompted to install a new version of <code>neofetch</code> - because the developers are sometimes literally making changes every day. (And if it's not obvious, when the developers have a bad day your software will stop working until they make a fix - that's the real "cutting edge"!)</p>
+<h2 id="summary">SUMMARY</h2>
+<p>Installing only from the default repositories is clearly the safest, but there are often good reasons for going beyond them. As a sysadmin you need to judge the risks, but in the example we came up with a realistic scenario where connecting to an unstable working developer's version made sense.</p>
+<p>As general rule however you:</p>
+<ul>
+<li>Will seldom have good reasons for hooking into more than one or two extra repositories</li>
+<li>Need to read up about a repository first, to understand any potential disadvantages.</li>
+</ul>
+<h2 id="resources">RESOURCES</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Pacman/Rosetta">Package management command comparison</a></li>
+<li><a href="http://fedoranews.org/tchung/howto/2003-11-09-yum-intro.shtml">How to use yum - Introduction</a></li>
+<li><a href="https://help.ubuntu.com/community/AptGet/Howto">Package management with APT</a></li>
+<li><a href="http://www.debian.org/intro/free">What do you mean by Free Software?</a></li>
+</ul>
+<p><em>Copyright 2012-2021 @snori74 (Steve Brorens). Can be reused under the terms of the Creative Commons Attribution 4.0 International Licence (CC BY 4.0).</em></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>

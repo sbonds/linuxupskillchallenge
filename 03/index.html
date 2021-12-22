@@ -1,0 +1,431 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Day 3 - Power trip! - Linux Upskill Challenge (Steve Bonds' Modified Version)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-3-power-trip" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-header__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Upskill Challenge (Steve Bonds' Modified Version)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 3 - Power trip!
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-nav__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Linux Upskill Challenge (Steve Bonds' Modified Version)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        home
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    INTRO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-tasks-today" class="md-nav__link">
+    YOUR TASKS TODAY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap" class="md-nav__link">
+    WRAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-hardening" class="md-nav__link">
+    A NOTE ON "HARDENING"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    EXTENSION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passwords-and-hashes" class="md-nav__link">
+    PASSWORDS AND HASHES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    RESOURCES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/sbonds/linuxupskillchallenge/tree/sbonds-long-term/docs/03.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="day-3-power-trip">Day 3 - Power trip!</h1>
+<ul>
+<li><a href="https://youtu.be/B6fDvmmh2_Q">Complementary video</a></li>
+<li><a href="https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%203&amp;restrict_sr=1">Previous "Day 3" threads</a></li>
+</ul>
+<h2 id="intro">INTRO</h2>
+<p>You've been logging in as an ordinary user at your server, yet you're probably aware that <code>root</code> is the power user on a Linux system. This administrative or "superuser" account, is all powerful - and a typo in a command could potentially cripple your server. As a sysadmin you're typically working on systems that are both important and remote, so avoiding such mistakes is A Very Good Idea.</p>
+<p>In order to ensure that actions taken can be tied back to specific people, it's a security Best Practice to discourage or disallow login directly by <code>root</code> - and instead to give specified trusted users the permission to run root-only commands via the <code>sudo</code> command.</p>
+<p>This is the way that your server has been set-up, with your "ordinary" login given the ability to run any root-only command  - but only if you precede it with <code>sudo</code>.</p>
+<p>Sometimes sudo will ask for a password and sometimes it will not. This is configurable and can range from "every time" to "after a certain number of minutes of non-use" all the way to "never."</p>
+<h2 id="your-tasks-today">YOUR TASKS TODAY</h2>
+<ul>
+<li>Use the links in the "Resources" section below to understand how <code>sudo</code> works</li>
+<li>Use <code>ls -l</code> to check the permissions of <code>/etc/shadow</code> - notice that only <code>root</code> has any access. Can you use <code>cat</code>, <code>less</code> or <code>nano</code> to view it?</li>
+<li>This file is where the hashed passwords are kept. It is a prime target for intruders - who aim to grab it and use offline password crackers to discover the passwords.</li>
+<li>Now try with <code>sudo</code>, e.g. <code>sudo less /etc/shadow</code></li>
+<li>Test running the <code>reboot</code> command, and then via <code>sudo</code> (i.e. <code>sudo reboot</code>)</li>
+</ul>
+<p>Once you've reconnected back:</p>
+<ul>
+<li>Use the <code>uptime</code> command to confirm that your server did actually fully restart</li>
+<li>Test fully "becoming root" by the command <code>sudo -i</code>  This can be handy if you have a series of commands to do "as root". Note the change to your prompt.</li>
+<li>Type <code>exit</code> or <code>logout</code> to get back to your own normal "support" login.</li>
+<li>Use <code>less</code> to view the file <code>/var/log/auth.log</code>, where any use of <code>sudo</code> is logged</li>
+<li>You could "filter" this by typing: <code>grep "sudo" /var/log/auth.log</code></li>
+</ul>
+<p>If you wish to, you can now rename your server. Traditionally you would do this by editing two files, <code>/etc/hostname</code> and <code>/etc/hosts</code> and then rebooting - but the more modern, and recommended, way is to use the <code>hostnamectl</code> command; like this:</p>
+<p><code>sudo hostnamectl set-hostname mylittlecloudbox</code></p>
+<p>No reboot is required.</p>
+<p>For a cloud server, you might find that the hostname changes after a reboot. To prevent this, edit <code>/etc/cloud/cloud.cfg</code> and change the "preserve_hostname" line to read:</p>
+<p><code>preserve_hostname: true</code></p>
+<p>You might also consider changing the timezone your server uses. By default this is likely to be UTC (i.e. GMT) - which is pretty appropriate for a worldwide fleet of servers. You could also set it to the zone the server is in, or where you and your headquarters are. For a company this is a decision not to be taken lightly, but for now you can simply change as you please!</p>
+<p>First check the current setting with:</p>
+<p><code>timedatectl</code></p>
+<p>Then get a a list of available timezones:</p>
+<p><code>timedatectl list-timezones</code></p>
+<p>And finally select one, like this:</p>
+<p><code>sudo timedatectl set-timezone Australia/Sydney</code></p>
+<p>Confirm:</p>
+<p><code>timedatectl</code></p>
+<p>The major practical effects of this are (1) the timing of scheduled tasks, and (2) the timestamping of the logs files kept under <code>/var/log</code>. If you make a change, there will naturally be a "jump" in the dates and time recorded.</p>
+<h2 id="wrap">WRAP</h2>
+<p>As a Linux sysadmin you may be working on client or custom systems where you have little control, and many of these will default to doing everything as <code>root</code>. You need to be able to safely work on such systems - where your only protection is to double check before pressing <code>Enter</code>.</p>
+<p>On the other hand, for any systems where you have full control, setting up a "normal" account for yourself (and any co-admins) with permission to run <code>sudo</code>  is recommended. While this is standard with Ubuntu, it's also easy to configure with other  popular server distros such as Debian, CentOS and RHEL.</p>
+<h2 id="a-note-on-hardening">A NOTE ON "HARDENING"</h2>
+<p>Your server is protected by the fact that its security updates are up to date, and that you've set Long Strong Unique passwords - or are using public keys. While exposed to the world, and very likely under continuous attack, it should be perfectly secure. Next week we'll look at how we can view those attacks, but for now it's simply important to state that while it's OK to read up on "SSH hardening", things such as changing the default port and <code>fail2ban</code> are unnecessary and unhelpful when we're trying to learn - and you are perfectly safe without them.</p>
+<h2 id="extension">EXTENSION</h2>
+<ul>
+<li>Read <a href="https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef">Hardening SSH</a></li>
+</ul>
+<h2 id="passwords-and-hashes">PASSWORDS AND HASHES</h2>
+<p>Earlier we mentioned "hashed passwords" are stored. What does this mean? Why not just store the actual password?</p>
+<p>Basically, because if the place where the passwords are stored gets in the hands of someone it shouldn't, now every known password is simultaneously revealed. This is sometimes how those data breaches we see in the news, end up in the news.</p>
+<p>Instead, when a user sets their password, the entered text is mixed up mathematically in a specific way that is hard to reverse, called a cryptographic hash function. This is combined with some extra data (a "salt") to defeat certain classes of pre-computed password attacks, and that result gets stored. When they log in again, whatever they type undergoes the same proces. If the end results matches, then what they typed was the correct password. If it doesn't match, that wasn't the right password. However, there's no way to take the hashed password and reverse it back to the original.</p>
+<p>It's certainly possible to make a lot of guesses and keep doing that forward hashing process until a match is found. This is why it's important to choose a hard-to-guess password. If someone breaks into a system you own, they can create a lot of work for you to clean up, damage the reputation of your company, attempt to extort money, use your systems to attack others, or all of the above.</p>
+<h2 id="resources">RESOURCES</h2>
+<ul>
+<li><a href="http://xkcd.com/149/">This cartoon explains it nicely!</a></li>
+<li><a href="https://help.ubuntu.com/community/RootSudo">Sudo in Ubuntu</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/sudo-beginners-guide/">How to use "sudo"</a></li>
+<li><a href="https://null-byte.wonderhowto.com/how-to/crack-shadow-hashes-after-getting-root-linux-system-0186386/">This is how password cracking is done</a></li>
+<li><a href="https://www.oreilly.com/library/view/practical-unix-and/0596003234/ch04s03.html">O'Reilly Book: Practical UNIX and Internet Security</a> on UNIX passwords</li>
+</ul>
+<p><em>Copyright 2012-2021 @snori74 (Steve Brorens). Can be reused under the terms of the Creative Commons Attribution 4.0 International Licence (CC BY 4.0).</em></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>

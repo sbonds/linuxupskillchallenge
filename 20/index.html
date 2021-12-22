@@ -1,0 +1,423 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Day 20 - Scripting - Linux Upskill Challenge (Steve Bonds' Modified Version)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-20-scripting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-header__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Upskill Challenge (Steve Bonds' Modified Version)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 20 - Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-nav__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Linux Upskill Challenge (Steve Bonds' Modified Version)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        home
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    INTRO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-with-a-shebang" class="md-nav__link">
+    START WITH A SHEBANG!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-script" class="md-nav__link">
+    YOUR FIRST SCRIPT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-the-script" class="md-nav__link">
+    EXTENDING THE SCRIPT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    RESOURCES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/sbonds/linuxupskillchallenge/tree/sbonds-long-term/docs/20.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="day-20-scripting">Day 20 - Scripting</h1>
+<ul>
+<li><a href="https://youtu.be/G7GyMuyauVk">Complementary video</a></li>
+<li><a href="https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%2020&amp;restrict_sr=1">Previous "Day 20" threads</a></li>
+</ul>
+<h2 id="intro">INTRO</h2>
+<p>Today is the final session for the course. Pat yourself on the back if you worked your way through all lessons!</p>
+<p>You’ve seen that a continual emphasis for a sysadmin is to automate as much as possible, and also how in Linux the system is very “transparent” - once you know where to look!</p>
+<p>Today, on this final session for the course, we’ll cover how to write small programs or “shell scripts” to help manage your system.</p>
+<p>When typing at the Linux command-line you're directly communicating with "the command interpreter", also known as "the shell". Normally this shell is <em>bash</em>, so when you string commands together to make a script the result can be called either a '"shell script", or a "bash script".</p>
+<p>Why make a script rather than just typing commands in manually?</p>
+<ul>
+<li>It saves typing. Remember when we searched through the logs with a long string of <code>grep</code>, <code>cut</code> and <code>sort</code> commands? If you need to do something like that more than a few times then turning it into a script saves typing - and typos!</li>
+<li>Parameters. One script can be used to do several things depending on what parameters you provide</li>
+<li>Automation. Pop your script in <em>/etc/cron.daily</em> and it will run each day, or install a symlink to it in the appropriate <em>/etc/rc.d</em> folder and you can have it run each time the system is shut down or booted up.</li>
+</ul>
+<h2 id="start-with-a-shebang">START WITH A SHEBANG!</h2>
+<p>Scripts are just simple text files, but if you set the "execute" permissions on them then the system will look for a special line starting with the two characters “#” and “!” - referred to as the "shebang" (or "crunchbang") at the top of the file.</p>
+<p>This line typically looks like this:</p>
+<pre><code> #!/bin/bash
+</code></pre>
+<p>Normally anything starting with a "#" character would be treated as a comment, but in the first line and followed by a "!", it's interpreted as: <em>"please feed the rest of this to the /bin/bash program, which will interpret it as a script"</em>. All of our scripts will be written in the <em>bash</em> language - the same as you’ve been typing at the command line throughout this course - but scripts can also be written in many other "scripting languages", so a script in the Perl language might start with <code>#!/usr/bin/perl</code> and one in Python <code>#!/usr/bin/env python3</code></p>
+<h2 id="your-first-script">YOUR FIRST SCRIPT</h2>
+<p>You'll write a small script to list out who's been most recently unsuccessfully trying to login to your server, using the entries in <em>/var/log/auth.log</em>.</p>
+<p>Use <code>vim</code> to create a file, <code>attacker</code>, in your home directory with this content:</p>
+<pre><code> #!/bin/bash
+ #
+ #   attacker - prints out the last failed login attempt
+ #
+ echo "The last failed login attempt came from IP address:"
+ grep -i "disconnected from" /var/log/auth.log|tail -1| cut -d: -f4| cut -f7 -d" "
+</code></pre>
+<p>Putting comments at the top of the script like this isn't strictly necessary (the computer ignores them), but it's a good professional habit to get into.</p>
+<p>To make it executable type:</p>
+<p><code>chmod +x attacker</code></p>
+<p>Now to run this script, you just need to refer to it by name - but the current directory is (deliberately) not in your $PATH, so you need to do this either of two ways:</p>
+<pre><code> /home/support/attacker
+ ./attacker
+</code></pre>
+<p>Once you're happy with a script, and want to have it easily available, you'll probably want to move it somewhere on your $PATH - and <em>/usr/local/bin</em> is a normally the appropriate place, so try this:</p>
+<p><code>sudo mv attacker /usr/local/bin/attacker</code></p>
+<p>...and now it will Just Work whenever you type <code>attacker</code></p>
+<h2 id="extending-the-script">EXTENDING THE SCRIPT</h2>
+<p>You can expand this script so that it requires a parameter and prints out some syntax help when you don't give one. There are a few new tricks in this, so it's worth studying:</p>
+<pre><code> #
+ ##   topattack - list the most persistent attackers
+ #
+ if [ -z "$1" ]; then
+ echo -e "\nUsage: `basename $0` &lt;num&gt; - Lists the top &lt;num&gt; attackers by IP"
+ exit 0
+ fi
+ echo " "
+ echo "Persistant recent attackers"
+ echo " "
+ echo "Attempts      IP "
+ echo "-----------------------"
+ grep "Disconnected from authenticating user root" /var/log/auth.log|cut -d: -f 4 | cut -d" " -f7|sort |uniq -c |sort -nr |head -$1
+</code></pre>
+<p>Again, use vim to create <code>"topattack"</code>, <code>chmod</code> to make it executable and <code>mv</code> to move it into <em>/usr/local/bin</em> once you have it working correctly.</p>
+<p>(BTW, you can use <code>whois</code> to find details on any of these IPs - just be aware that the system that is "attacking" you may be an innocent party that's been hacked into).</p>
+<p>A collection of simple scripts like this is something that you can easily create to make your sysadmin tasks simpler, quicker and less error prone.</p>
+<p>And yes, this is the last lesson - so please, feel free to write a review on how the course went for you and what you plan to do with your new knowledge and skills!</p>
+<h2 id="resources">RESOURCES</h2>
+<ul>
+<li><a href="http://www.youtube.com/watch?v=QGvvJO5UIs4">Learn Bash Scripts - Tutorial (video)</a></li>
+<li><a href="http://linuxconfig.org/Bash_scripting_Tutorial">Bash scripting tutorial</a></li>
+<li><a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">BASH Programming - Introduction HOW-TO</a></li>
+<li><a href="http://www.linuxjournal.com/content/how-be-good-and-lazy-system-administrator">How to be a good (and lazy) System Administrator</a></li>
+</ul>
+<p><em>Copyright 2012-2021 @snori74 (Steve Brorens). Can be reused under the terms of the Creative Commons Attribution 4.0 International Licence (CC BY 4.0).</em></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>

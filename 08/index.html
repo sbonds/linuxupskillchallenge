@@ -1,0 +1,450 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Day 8 - the infamous "grep"... - Linux Upskill Challenge (Steve Bonds' Modified Version)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-8-the-infamous-grep" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-header__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Upskill Challenge (Steve Bonds' Modified Version)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 8 - the infamous "grep"...
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Linux Upskill Challenge (Steve Bonds&#39; Modified Version)" class="md-nav__button md-logo" aria-label="Linux Upskill Challenge (Steve Bonds' Modified Version)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Linux Upskill Challenge (Steve Bonds' Modified Version)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sbonds/linuxupskillchallenge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        home
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    INTRO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    TASKS
+  </a>
+  
+    <nav class="md-nav" aria-label="TASKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipes" class="md-nav__link">
+    Pipes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirect-output-to-a-file" class="md-nav__link">
+    Redirect output to a file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posting-your-progress" class="md-nav__link">
+    POSTING YOUR PROGRESS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    EXTENSION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    RESOURCES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/sbonds/linuxupskillchallenge/tree/sbonds-long-term/docs/08.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="day-8-the-infamous-grep">Day 8 - the infamous "grep"...</h1>
+<ul>
+<li><a href="https://youtu.be/kG5JGJN5iTc">Complementary video</a></li>
+<li><a href="https://www.reddit.com/r/linuxupskillchallenge/search/?q=Day%208&amp;restrict_sr=1">Previous "Day 8" threads</a></li>
+</ul>
+<h2 id="intro">INTRO</h2>
+<p>Your server is now running two services: the <em>sshd</em> (Secure Shell Daemon) service that you use to login; and the Apache2 web server. Both of these services are generating logs as you and others access your server - and these are text files which we can analyse using some simple tools.</p>
+<p>Plain text files are a key part of "the Unix way" and there are many small "tools" to allow you to easily edit, sort, search and otherwise manipulate them. Today we'll use <code>grep</code>, <code>cat</code>, <code>more</code>, <code>less</code>, <code>cut</code>, <code>awk</code> and <code>tail</code> to slice and dice your logs.</p>
+<p>The <code>grep</code> command is famous for being extremely powerful and handy, but also because its "nerdy" name is typical of Unix/Linux conventions.</p>
+<h2 id="tasks">TASKS</h2>
+<ul>
+<li>Dump out the complete contents of a file with <code>cat</code> like this: <code>cat /var/log/apache2/access.log</code></li>
+<li>Use <code>less</code> to open the same file, like this: <code>less /var/log/apache2/access.log</code> - and move up and down through the file with your arrow keys, then use "q" to quit.</li>
+<li>Using <code>vi</code>, look at a file and practice moving around using <em>G</em> (go to bottom) and <em>gg</em> (go to top.) </li>
+<li>Still in <code>vi</code> use <em>/GET</em> + enter to search for GET. Once you see the first match, hit <em>n</em> to see the next match, no enter needed. Use <em>N</em> to see the prior match, also no enter needed.</li>
+<li>View recent logins and <code>sudo</code> usage by viewing <code>/var/log/auth.log</code> with <code>less</code>, <code>more</code>, or <code>vi</code>.</li>
+<li>Look at just the tail end of the file with <code>tail /var/log/apache2/access.log</code> (yes, there's also a <code>head</code> command!)</li>
+<li>Follow a log in real-time with: <code>tail -f /var/log/apache2/access.log</code><ul>
+<li>Your prompt will not come back since you're watching the log change</li>
+<li>To make it more obvious that some new log has appeared, hit enter a couple of times to put blank lines on your screen</li>
+<li>Visit your website with your browser and see the log entries that appear</li>
+<li>When done, hit <code>&lt;ctrl&gt;-c</code> to exit the <code>tail</code> command</li>
+</ul>
+</li>
+</ul>
+<h3 id="pipes">Pipes</h3>
+<ul>
+<li>You can take the output of one command and "pipe" it in as the input to another by using the <code>|</code> (pipe) symbol</li>
+<li>So, dump out a file with <code>cat</code>, but pipe that output to <code>grep</code> with a search term - like this: <code>cat /var/log/auth.log | grep "Disconnect"</code></li>
+<li>To see the same output without needing a pipe, you can use <code>grep "Disconnect" /var/log/auth.log</code></li>
+<li>Piping allows you to narrow your search, e.g. <code>grep "Disconnect" /var/log/auth.log | grep "root"</code></li>
+<li>Use the <code>cut</code> command to select out most interesting portions of each line by specifying "--delimiter" (the thing that separates the fields) and "--fields" (the fields you want)<ul>
+<li>The delimiter in the example below is a space character so each time a space appears it creates a new field. Think of a field as a new column in a spreadsheet.</li>
+<li>The fields specify the position number of the columns that you want to display.</li>
+<li><code>grep "Disconnect" /var/log/auth.log | grep "root" | cut --fields 10- --delimiter " "</code> shows field 10 onwards, where the delimiter between fields is the " " character.</li>
+</ul>
+</li>
+<li>Searching and picking out specific fields can be very useful in extracting useful information from log data. These commands are also easy to automate and insert into reports compared with working with columns in a spreadsheet or database.</li>
+<li>Use the <code>-v</code> option to invert the selection and find attempts to login with other users: <code>grep "Disconnect" /var/log/auth.log | grep -v "root"</code><ul>
+<li>There may not be any other user attempts in this log file</li>
+<li>It may help to search <code>/var/log/auth.log.1</code> in addition-- this is the prior week's log</li>
+</ul>
+</li>
+</ul>
+<h3 id="redirect-output-to-a-file">Redirect output to a file</h3>
+<p>The output of any command can be "redirected" to a file with the "&gt;" operator. The command: <code>ls -ltr &gt; listing.txt</code> wouldn't list the directory contents to your screen, but instead redirect into the file "listing.txt" (creating that file if it didn't exist, or overwriting the contents if it did).</p>
+<p>Try this:
+  * <code>cd</code>
+  * <code>ls -lrt &gt; my-files.txt</code>
+  * <code>ls -l</code></p>
+<p>You should see <code>my-files.txt</code>. Look at its contents with:
+  * <code>cat my-files.txt</code></p>
+<p>How about redirecting those log searches from earlier to files for permanent storage or for sending to other people if needed?</p>
+<p><code>grep "Disconnect" /var/log/auth.log | grep "root" &gt; auth-log-report.txt</code></p>
+<p>The new <code>auth-log-report.txt</code> file can be viewed with <code>more</code>, <code>vi</code>, etc.</p>
+<h2 id="posting-your-progress">POSTING YOUR PROGRESS</h2>
+<p>Re-run the command to list all the IP's that have unsuccessfully tried to login to your server as <em>root</em> - but this time, use the the "&gt;" operator to redirect it to the file: <code>~/attackers.txt</code>. You might like to share and compare with others doing the course how heavily you're "under attack"!</p>
+<h2 id="extension">EXTENSION</h2>
+<ul>
+<li>See if you can extend your filtering of <code>auth.log</code> to select just the IP addresses, then pipe this to <code>sort</code>, and then further to <code>uniq</code> to get a list of all those IP addresses that have been "auditing" your server security for you.<ul>
+<li>One example: <code>grep "Disconnected" /var/log/auth.log | grep "root"| cut --fields 12 --delimiter " " | sort | uniq --count</code></li>
+</ul>
+</li>
+<li>Advanced exercise: sort by IP address while keeping the complete text of each log entry.</li>
+<li>Investigate the <code>awk</code> and <code>sed</code> commands. When you're having difficulty figuring out how to do something with <code>grep</code> and <code>cut</code>, then you may need to step up to using these. Googling for "linux sed tricks" or "awk one liners" will get you many examples.<ul>
+<li><code>grep "Disconnect" /var/log/auth.log | grep "root" | awk --field-separator " " '{print $11}' | sort | uniq --count</code></li>
+</ul>
+</li>
+<li>Aim to learn at least one simple useful trick with both <code>awk</code> and <code>sed</code></li>
+</ul>
+<h2 id="resources">RESOURCES</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=nLa6jAbULe8&amp;t=97s">Text processing commands</a></li>
+<li><a href="https://www.ostechnix.com/the-grep-command-tutorial-with-examples-for-beginners/">OSTechNix grep tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=NTfOnGZUZDk">Where GREP came from</a></li>
+</ul>
+<p><em>Copyright 2012-2021 @snori74 (Steve Brorens). Can be reused under the terms of the Creative Commons Attribution 4.0 International Licence (CC BY 4.0).</em></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>
