@@ -8,6 +8,9 @@ theme:
     accent: 'blue'
   features:
     - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
 repo_url: https://github.com/sbonds/linuxupskillchallenge
 repo_name: 'GitHub'
 edit_uri: tree/sbonds-long-term/docs
