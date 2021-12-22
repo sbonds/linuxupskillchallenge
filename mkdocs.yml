@@ -1,6 +1,28 @@
 site_name: Linux Upskill Challenge (Steve Bonds' Modified Version)
 nav:
-- home: index.md
+- Home: index.md
+- Day 1: 01.md
+- Day 2: 02.md
+- Day 3: 03.md
+- Day 4: 04.md
+- Day 5: 05.md
+- Day 6: 06.md
+- Day 7: 07.md
+- Day 8: 08.md
+- Day 9: 09.md
+- Day 10: 10.md
+- Day 10.5: 10a.md
+- Day 11: 11.md
+- Day 12: 12.md
+- Day 13: 13.md
+- Day 14: 14.md
+- Day 15: 15.md
+- Day 16: 16.md
+- Day 17: 17.md
+- Day 18: 18.md
+- Day 19: 19.md
+- Day 20: 20.md
+- Day 21: 21.md
 theme: 
   name: material
   palette:
