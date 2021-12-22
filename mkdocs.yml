@@ -1,0 +1,19 @@
+site_name: Linux Upskill Challenge (Steve Bonds' Modified Version)
+nav:
+- home: index.md
+theme: 
+  name: material
+  palette:
+    primary: 'white'
+    accent: 'blue'
+  features:
+    - navigation.tabs
+repo_url: https://github.com/sbonds/linuxupskillchallenge
+repo_name: 'GitHub'
+edit_uri: tree/sbonds-long-term/docs
+extra:
+  contact:
+    name: 'Steve Bonds'
+    email: 'sbonds@gmail.com'
+markdown_extensions:
+- mdx_truly_sane_lists
